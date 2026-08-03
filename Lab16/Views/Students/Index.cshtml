@@ -1,0 +1,36 @@
+﻿@model List<lab16.Models.Student>
+
+<h1>Students</h1>
+
+@if (ViewData["Year"] != null)
+{
+    <p>Year: @ViewData["Year"]</p>
+}
+@if (ViewData["Band"] != null)
+{
+    <p>Honours Band: @ViewData["Band"]</p>
+}
+@if (ViewData["Name"] != null)
+{
+    <p>Search: @ViewData["Name"]</p>
+}
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Year</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.YearOfStudy</td>
+                <td>@student.Gpa.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>

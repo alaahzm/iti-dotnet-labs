@@ -1,0 +1,23 @@
+﻿@model List<lab16.Models.Student>
+
+<h1>Honours Band — @ViewData["Band"]</h1>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Year</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.YearOfStudy</td>
+                <td>@student.Gpa.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>

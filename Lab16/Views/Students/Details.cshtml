@@ -1,0 +1,9 @@
+﻿@model lab16.Models.Student
+
+<h1>Student Details</h1>
+
+<table border="1" cellpadding="6">
+    <tr><th>Full Name</th><td>@Model.FullName</td></tr>
+    <tr><th>Year of Study</th><td>@Model.YearOfStudy</td></tr>
+    <tr><th>GPA</th><td>@Model.Gpa.ToString("F2")</td></tr>
+</table>
