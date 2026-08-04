@@ -1,0 +1,38 @@
+@model List<Student>
+@*
+    Views/Students/Searching.cshtml — PRE-TYPED, NOT TODAY'S TOPIC.
+    Named after the ACTION (Searching), not the URL (students/search).
+    MVC finds a view by the method's name, never by the route's.
+*@
+@{
+    ViewData["Title"] = "Search Students";
+}
+
+<h1 class="display-5">Search Results</h1>
+<p class="lead">
+    Reached at the address <code>students/search</code>, which this action
+    carries itself. The search term arrived in the QUERY STRING, not in a
+    route segment: <code>@(ViewData["Name"] ?? "(none)")</code>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Year</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.YearOfStudy</td>
+                <td>@student.Gpa.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/students">Back to all students</a>

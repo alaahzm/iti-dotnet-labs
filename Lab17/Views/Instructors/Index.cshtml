@@ -1,0 +1,33 @@
+@model List<Instructor>
+@*
+    Views/Instructors/Index.cshtml — PRE-WRITTEN FOR THE LAB.
+    Views are Session 18. Everything you are graded on today lives in the
+    CONTROLLER, so both lab views are given to you finished.
+*@
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<h1 class="display-5">Instructors</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Id</th><th>Full Name</th><th>Years of Experience</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var instructor in Model)
+        {
+            <tr>
+                <td>@instructor.Id</td>
+                <td>@instructor.FullName</td>
+                <td>@instructor.YearsOfExperience</td>
+                <td><a href="/Instructors/Edit/@instructor.Id">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

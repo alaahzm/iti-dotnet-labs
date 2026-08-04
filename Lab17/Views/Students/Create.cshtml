@@ -1,0 +1,63 @@
+@model Student
+@*
+    Views/Students/Create.cshtml — PRE-TYPED, NOT TODAY'S TOPIC.
+
+    Views are Session 18. This form is given to you finished so that the
+    whole of today's lecture time goes on the CONTROLLER — which is the
+    thing that actually decides what happens to what this form sends.
+
+    Three things in here are worth a glance even though you are not
+    writing them today, because Block 3 and Block 4 refer to them:
+
+      asp-for="FullName"
+          Generates <input name="FullName">. The name of the input is
+          what the browser sends, and matching that name to a property is
+          exactly how model binding fills the Student object in Block 2.
+
+      asp-validation-for="FullName"
+          The empty span where an error message appears IF one exists.
+          Nothing writes into it unless validation failed.
+
+      asp-validation-summary="ModelOnly"
+          A list at the top for errors that belong to the whole form
+          rather than to one field.
+
+    The <form> tag with asp-action also quietly adds a hidden
+    anti-forgery token. Block 3 says what that is and why the POST would
+    be rejected without it.
+*@
+@{
+    ViewData["Title"] = "Add a Student";
+}
+
+<h1 class="display-5">Add a Student</h1>
+<p class="lead">Everything typed here is sent to the POST version of <code>Create</code>.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label">Full Name</label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="YearOfStudy" class="form-label">Year of Study</label>
+                <input asp-for="YearOfStudy" class="form-control" />
+                <span asp-validation-for="YearOfStudy" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Gpa" class="form-label">GPA</label>
+                <input asp-for="Gpa" class="form-control" />
+                <span asp-validation-for="Gpa" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="/students" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

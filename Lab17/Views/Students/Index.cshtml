@@ -1,0 +1,51 @@
+@model List<Student>
+@*
+    Views/Students/Index.cshtml — PRE-TYPED, NOT TODAY'S TOPIC.
+    Views are Session 18. This page exists so the route you build in
+    TODO 2 has somewhere to land. Read it if you like; you are not
+    expected to write it today.
+*@
+@{
+    ViewData["Title"] = "Students";
+}
+
+@*
+    PRE-TYPED ADDITION FOR SESSION 17 — the confirmation banner and the
+    Add button. Neither is today's topic; both are here so Block 5's
+    redirect has somewhere to land and something to show.
+
+    TempData is a small message bag that survives exactly ONE redirect and
+    is then thrown away. That is why the banner appears once after saving
+    and disappears if you refresh.
+*@
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<h1 class="display-5">All Students</h1>
+<p class="lead">Reached through the route pattern <code>students</code>.</p>
+
+<p><a class="btn btn-primary" href="/Students/Create">+ Add a Student</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Year</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td><a href="/students/@student.Id">@student.FullName</a></td>
+                <td>@student.YearOfStudy</td>
+                <td>@student.Gpa.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>

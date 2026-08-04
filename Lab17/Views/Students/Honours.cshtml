@@ -1,0 +1,32 @@
+@model List<Student>
+@*
+    Views/Students/Honours.cshtml — PRE-TYPED, NOT TODAY'S TOPIC.
+*@
+@{
+    ViewData["Title"] = "Honours Band";
+}
+
+<h1 class="display-5">Band: @ViewData["Band"]</h1>
+<p class="lead">Reached through the route pattern <code>students/honours/{band:honourband}</code>.</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Year</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FullName</td>
+                <td>@student.YearOfStudy</td>
+                <td>@student.Gpa.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/students">Back to all students</a>

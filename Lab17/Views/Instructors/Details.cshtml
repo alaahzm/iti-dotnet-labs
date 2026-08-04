@@ -1,0 +1,19 @@
+@model lab17.Models.Instructor
+@{
+    ViewData["Title"] = "Instructor Details";
+}
+
+<h1 class="display-5">Instructor Details</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table">
+    <tr><th>Id</th><td>@Model.Id</td></tr>
+    <tr><th>Full Name</th><td>@Model.FullName</td></tr>
+    <tr><th>Years of Experience</th><td>@Model.YearsOfExperience</td></tr>
+</table>
+
+<a href="/Instructors" class="btn btn-secondary">Back to list</a>
